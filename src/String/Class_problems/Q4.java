@@ -1,0 +1,30 @@
+package Step_semester_3.src.String.Class_problems;
+
+import java.util.Scanner;
+
+public class Q4 {
+    public static char findFirstNonRepeatingChar(String text) {
+        int[] frequency = new int[256];
+        for (int i = 0; i < text.length(); i++) {
+            frequency[text.charAt(i)]++;
+        }
+        for (int i = 0; i < text.length(); i++) {
+            if (frequency[text.charAt(i)] == 1) {
+                return text.charAt(i);
+            }
+        }
+        return '\0';
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word or sentence: ");
+        String text = sc.nextLine();
+        char result = findFirstNonRepeatingChar(text);
+        if (result != '\0') {
+            System.out.println("First non-repeating character: " + result);
+        } else {
+            System.out.println("No non-repeating character found.");
+        }
+        sc.close();
+    }
+}
